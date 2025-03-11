@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class CollisionHandler : MonoBehaviour
 {
@@ -9,15 +10,31 @@ public class CollisionHandler : MonoBehaviour
             case "Friendly":
                 Debug.Log("On Friendly Platform");
                 break;
-            case "Fuel":
-                Debug.Log("Got some Fuel");
-                break;
             case "Finish":
-                Debug.Log("Finished Level!");
+                LoadNextLevel();
                 break;
             default:
-                Debug.Log("Player Destroyed");
+                ReloadLevel();
                 break;
+        }
+
+        void ReloadLevel()
+        {
+            int currentScene = SceneManager.GetActiveScene().buildIndex;
+            SceneManager.LoadScene(currentScene);
+        }
+
+        void LoadNextLevel()
+        {
+            int currentScene = SceneManager.GetActiveScene().buildIndex;
+            int nextScene = currentScene + 1;
+
+            if (nextScene == SceneManager.sceneCountInBuildSettings)
+            {
+                nextScene = 0;
+            }
+
+            SceneManager.LoadScene(nextScene);
         }
     }
 
