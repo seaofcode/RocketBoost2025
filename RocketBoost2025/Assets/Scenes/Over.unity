@@ -866,6 +866,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1165924724366808284, guid: aba74ed3595b7c04fa0f982e6875a24a, type: 3}
+      propertyPath: levelLoadDelay
+      value: 1.5
+      objectReference: {fileID: 0}
     - target: {fileID: 6365892781644273267, guid: aba74ed3595b7c04fa0f982e6875a24a, type: 3}
       propertyPath: m_Name
       value: PlayerRocket
